@@ -7,6 +7,17 @@ from fastapi import FastAPI
 from fastapi import HTTPException
 api = FastAPI()
 
+#Añadiendo políticas CORS a la API
+from fastapi.middleware.cors import CORSMiddleware
+origins = [
+    "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
+    "http://localhost", "http://localhost:8080", "https://infinapp-app.herokuapp.com/",
+]
+api.add_middleware(
+    CORSMiddleware, allow_origins=origins,
+    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+)
+
 #Funcionalidad get_producto:
 @api.get("/inventory/product/{nombre_producto}")
 async def buscar_producto(nombre_producto: str):
