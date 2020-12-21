@@ -7,6 +7,17 @@ from fastapi import FastAPI
 from fastapi import HTTPException
 api = FastAPI()
 
+#Añadiendo políticas CORS a la API
+from fastapi.middleware.cors import CORSMiddleware
+origins = [
+    "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
+    "http://localhost", "http://localhost:8080", "https://infinapp-app.herokuapp.com/",
+]
+api.add_middleware(
+    CORSMiddleware, allow_origins=origins,
+    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+)
+
 #Funcionalidad get_producto:
 @api.get("/inventory/product/{nombre_producto}")
 async def buscar_producto(nombre_producto: str):
@@ -18,8 +29,9 @@ async def buscar_producto(nombre_producto: str):
     return product_out
 
 #Funcionalidad  update_product:
-@api.put("/inventory/product/modify/{nombre_producto}")
+@api.put("/inventory/product/modify/", response_model=UpdateProduct)
 async def modificar_producto(producto_in_db: ProductInDB):
+    nombre_producto = producto_in_db.nombre_producto
     producto_db = get_producto(producto_in_db.nombre_producto)
     new_cant = producto_in_db.cantidad
     new_precio = producto_in_db.precio_compra
