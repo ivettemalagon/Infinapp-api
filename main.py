@@ -1,7 +1,10 @@
 from db.productos_db import ProductInDB
 from db.productos_db import update_producto, get_producto, busca_nombre
+from db.user_db import UserInDB
+from db.user_db import update_user, get_user
 
 from models.productos_models import SeeProduct, UpdateProduct
+from models.user_models import UserIn, UserOut
 
 from fastapi import FastAPI
 from fastapi import HTTPException
@@ -49,3 +52,17 @@ async def modificar_producto(producto_in_db: ProductInDB):
         producto_db.fecha_vencimiento = new_ven
     product_out = UpdateProduct(**producto_db.dict())
     return product_out
+
+#Autenticacion
+@api.post("/user/auth/")
+async def auth_user(user_in: UserIn):
+    
+    user_in_db = get_user(user_in.username)
+
+    if user_in_db == None:
+        raise HTTPException(status_code=404, detail="El usuario no existe")
+    
+    if user_in_db.password != user_in.password:
+        return  {"Autenticado": False}
+
+    return  {"Autenticado": True}
