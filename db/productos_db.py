@@ -13,25 +13,25 @@ class ProductInDB(BaseModel):
 #DB ficticia
 database_productos = Dict[str, ProductInDB]
 database_productos = {
-    "Pan_Bimbo": ProductInDB(**{"nombre_producto":"Pan_Bimbo",
+    "Pan_Bimbo": ProductInDB(**{"nombre_producto":"Pan Bimbo",
                                 "cantidad":10,
                                 "precio_compra":4500,
                                 "pvp":5000,
                                 "fecha_vencimiento":"2020-12-31"
                                 }),
-    "Jabon_Ariel": ProductInDB(**{"nombre_producto":"Jabon_Ariel",
+    "Jabon_Ariel": ProductInDB(**{"nombre_producto":"Jabon Ariel",
                                 "cantidad":8,
                                 "precio_compra":3850,
                                 "pvp":4200,
                                 "fecha_vencimiento":"2021-03-25"
                                 }),   
-    "Margarina_Gustosita": ProductInDB(**{"nombre_producto":"Margarina_Gustosita",
+    "Margarina_Gustosita": ProductInDB(**{"nombre_producto":"Margarina Gustosita",
                                 "cantidad":5,
                                 "precio_compra":1300,
                                 "pvp":1550,
                                 "fecha_vencimiento":"2021-09-13"
                                 }), 
-    "Jugo_DelValle": ProductInDB(**{"nombre_producto":"Jugo_DelValle",
+    "Jugo_DelValle": ProductInDB(**{"nombre_producto":"Jugo DelValle",
                                 "cantidad":6,
                                 "precio_compra":1700,
                                 "pvp":2000,
@@ -43,7 +43,7 @@ database_productos = {
                                 "pvp":350,
                                 "fecha_vencimiento":"2020-12-18"
                                 }),
-    "Agua_Botella": ProductInDB(**{"nombre_producto":"Agua_Botella",
+    "Agua_Botella": ProductInDB(**{"nombre_producto":"Agua Botella",
                                 "cantidad": 12,
                                 "precio_compra":1450,
                                 "pvp":1600,
