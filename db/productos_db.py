@@ -13,25 +13,25 @@ class ProductInDB(BaseModel):
 #DB ficticia
 database_productos = Dict[str, ProductInDB]
 database_productos = {
-    "Pan": ProductInDB(**{"nombre_producto":"Pan",
+    "Pan_Bimbo": ProductInDB(**{"nombre_producto":"Pan_Bimbo",
                                 "cantidad":10,
                                 "precio_compra":4500,
                                 "pvp":5000,
                                 "fecha_vencimiento":"2020-12-31"
                                 }),
-    "Jabon": ProductInDB(**{"nombre_producto":"Jabon",
+    "Jabon_Ariel": ProductInDB(**{"nombre_producto":"Jabon_Ariel",
                                 "cantidad":8,
                                 "precio_compra":3850,
                                 "pvp":4200,
                                 "fecha_vencimiento":"2021-03-25"
                                 }),   
-    "Margarina": ProductInDB(**{"nombre_producto":"Margarina",
+    "Margarina_Gustosita": ProductInDB(**{"nombre_producto":"Margarina_Gustosita",
                                 "cantidad":5,
                                 "precio_compra":1300,
                                 "pvp":1550,
                                 "fecha_vencimiento":"2021-09-13"
                                 }), 
-    "Jugo": ProductInDB(**{"nombre_producto":"Jugo",
+    "Jugo_DelValle": ProductInDB(**{"nombre_producto":"Jugo_DelValle",
                                 "cantidad":6,
                                 "precio_compra":1700,
                                 "pvp":2000,
@@ -43,7 +43,7 @@ database_productos = {
                                 "pvp":350,
                                 "fecha_vencimiento":"2020-12-18"
                                 }),
-    "Agua": ProductInDB(**{"nombre_producto":"Agua",
+    "Agua_Botella": ProductInDB(**{"nombre_producto":"Agua_Botella",
                                 "cantidad": 12,
                                 "precio_compra":1450,
                                 "pvp":1600,
@@ -54,7 +54,7 @@ database_productos = {
                                 "precio_compra":1350,
                                 "pvp":1590,
                                 "fecha_vencimiento":"2021-10-02"
-                                }),                             
+                                }),                                 
 }
 
 #Definicion de funciones de la base de datos
