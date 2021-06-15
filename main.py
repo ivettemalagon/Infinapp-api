@@ -32,8 +32,9 @@ async def buscar_producto(nombre_producto: str):
     return product_out
 
 #Funcionalidad  update_product:
-@api.put("/inventory/product/modify/{nombre_producto}")
+@api.put("/inventory/product/modify/", response_model=UpdateProduct)
 async def modificar_producto(producto_in_db: ProductInDB):
+    nombre_producto = producto_in_db.nombre_producto
     producto_db = get_producto(producto_in_db.nombre_producto)
     new_cant = producto_in_db.cantidad
     new_precio = producto_in_db.precio_compra
@@ -51,6 +52,7 @@ async def modificar_producto(producto_in_db: ProductInDB):
         producto_db.fecha_vencimiento = new_ven
     product_out = UpdateProduct(**producto_db.dict())
     return product_out
+
 #Autenticacion
 @api.post("/user/auth/")
 async def auth_user(user_in: UserIn):
